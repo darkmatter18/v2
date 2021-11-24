@@ -9,6 +9,28 @@ module.exports = {
     image: '/images/icon.png',
     author: `@darkmatter18`,
     twitterUsername: '@arkadipb21',
+    social: {
+      twitter: {
+        url: 'https://twitter.com/arkadipb21',
+        handle: '@arkadipb21',
+      },
+      github: {
+        url: 'https://github.com/darmatter18',
+        handle: '@darmatter18',
+      },
+      linkedin: {
+        url: 'https://www.linkedin.com/in/arkadip',
+        handle: 'arkadip',
+      },
+      instagram: {
+        url: 'https://www.instagram.com/__dark_matter/',
+        handle: '@__dark_matter',
+      },
+      facebook: {
+        url: 'https://www.facebook.com/arkadipb',
+        handle: 'arkadipb',
+      },
+    },
   },
   plugins: [
     'gatsby-plugin-postcss',

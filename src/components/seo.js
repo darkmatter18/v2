@@ -14,8 +14,15 @@ const SEO = ({title, description, image, article}) => {
     defaultDescription,
     siteUrl,
     defaultImage,
-    twitterUsername,
+    social: {
+      twitter: {handle: twitterHandle, url: twitterUrl},
+      facebook: {url: facebookUrl},
+      instagram: {url: instagramUrl},
+      github: {url: githubUrl},
+      linkedin: {url: linkedinUrl},
+    },
   } = site.siteMetadata;
+  console.log(site.siteMetadata);
 
   const seo = {
     title: title || defaultTitle,
@@ -32,13 +39,14 @@ const SEO = ({title, description, image, article}) => {
           "@context": "https://schema.org/",
           "@type": "Person",
           "name": "Arkadip Bhattacharya",
-          "url": "https://v2.arkadip.me",
-          "image": "",
+          "url": "${siteUrl}",
+          "image": "${defaultImage}",
           "sameAs": [
-            "https://www.facebook.com/arkadipb",
-            "https://twitter.com/Arkadipb21",
-            "https://www.instagram.com/__dark_matter/",
-            "https://www.linkedin.com/in/arkadip/"
+            "${facebookUrl}",
+            "${twitterUrl}",
+            "${instagramUrl}",
+            "${githubUrl}",
+            "${linkedinUrl}",
           ],
           "jobTitle": "Developer and Engineer"  
         }
@@ -61,8 +69,8 @@ const SEO = ({title, description, image, article}) => {
 
       <meta name="twitter:card" content="summary_large_image" />
 
-      {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
+      {twitterHandle && (
+        <meta name="twitter:creator" content={twitterHandle} />
       )}
 
       {seo.title && <meta name="twitter:title" content={seo.title} />}
@@ -100,8 +108,25 @@ const query = graphql`
         titleTemplate
         defaultDescription: description
         siteUrl
-        defaultImage: image
-        twitterUsername
+        defaultImage: image,
+        social {
+          github {
+            url
+          },
+          twitter {
+            url,
+            handle
+          },
+          instagram {
+            url
+          },
+          linkedin {
+            url
+          },
+          facebook {
+            url
+          },
+        }
       }
     }
   }
