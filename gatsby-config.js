@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Arkadip`,
+    title: `Arkadip Bhattacharya`,
     titleTemplate: '%s | Arkadip',
     description: `A Computer science and Engineering student, 
     Deep Learning and Computer Vision 
