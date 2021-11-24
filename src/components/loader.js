@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
-import LoaderIcon from '../icons/LoaderIcon';
+import {useStaticQuery, graphql} from 'gatsby';
 import clsx from 'clsx';
+import LoaderIcon from '../icons/LoaderIcon';
 
 const Loader = ({finishLoading}) => {
+  const {site} = useStaticQuery(query);
+  const {title, descriptionSmall} = site.siteMetadata;
+
   const animate = () => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
@@ -31,12 +35,10 @@ const Loader = ({finishLoading}) => {
           opacity: 1,
         })
         .add({
-          targets: '#logo',
-          delay: 500,
-          duration: 300,
-          easing: 'easeInOutQuart',
-          opacity: 0,
-          scale: 0.1,
+          targets: '#title_container',
+          duration: 1000,
+          easing: 'linear',
+          scale: 0,
         });
   };
 
@@ -55,8 +57,19 @@ const Loader = ({finishLoading}) => {
         clsx('container', isMounted ? 'opacity-100' : 'opacity-0',
             'min-h-screen', 'flex', 'justify-center', 'items-center',
             'bg-deep-blue')}>
-        <div className={'w-20'}>
-          <LoaderIcon isOnLoader={true}/>
+        <div className={clsx('inline-flex', 'items-center',
+            'space-x-4')}>
+          <div className={'flex'}>
+            <LoaderIcon isOnLoader={true}/>
+          </div>
+          <div id="title_container" className={'flex flex-col'} >
+            <div id="subtitle" className={'text-neon-violet'}>
+              {descriptionSmall}
+            </div>
+            <div className={'text-neon-violet text-4xl tracking-tighter'}>
+              {title}
+            </div>
+          </div>
         </div>
 
       </div>
@@ -69,3 +82,14 @@ Loader.propTypes = {
 };
 
 export default Loader;
+
+const query = graphql`
+  query title {
+    site {
+      siteMetadata {
+        title,
+        descriptionSmall
+      }
+    }
+  }
+`;
