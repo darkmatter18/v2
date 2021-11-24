@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 const LoaderIcon = ({isOnLoader}) => (
-  <svg id="logo" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg id="logo" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" className={'w-20'}>
     <g id="A" className={clsx(isOnLoader ? 'opacity-0' : 'opacity-100')}>
       <path
         d="M94.0501 96L88.6501 83.904H62.0101L56.5381 96H48.4741L71.2261
