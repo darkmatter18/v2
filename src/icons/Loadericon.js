@@ -12,7 +12,7 @@ const LoaderIcon = ({isOnLoader}) => (
         58.344C76.5781 56.856 75.9541 55.272 75.3301 53.592C74.6581 55.32
         74.0101 56.976 73.3861 58.56C72.7621 60.096 72.1141 61.632 71.4421
         63.168Z"
-        className={'fill-neon-green'}/>
+        className={'fill-current text-neon-violet'}/>
     </g>
     <path
       d="M80 8.66025L129.952 37.5C133.046 39.2863 134.952 42.5876 134.952
@@ -21,7 +21,7 @@ const LoaderIcon = ({isOnLoader}) => (
       110.714 15.0481 107.412 15.0481 103.84V46.1603C15.0481 42.5876 16.9541
       39.2863 20.0481 37.5L70 8.66025C73.094 6.87393 76.906 6.87393 80
       8.66025Z"
-      className={'stroke-neon-green'} strokeWidth="10"/>
+      className={'stroke-current text-neon-violet'} strokeWidth="10"/>
   </svg>
 );
 
