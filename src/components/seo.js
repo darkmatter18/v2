@@ -22,7 +22,6 @@ const SEO = ({title, description, image, article}) => {
       linkedin: {url: linkedinUrl},
     },
   } = site.siteMetadata;
-  console.log(site.siteMetadata);
 
   const seo = {
     title: title || defaultTitle,
@@ -38,7 +37,7 @@ const SEO = ({title, description, image, article}) => {
         {
           "@context": "https://schema.org/",
           "@type": "Person",
-          "name": "Arkadip Bhattacharya",
+          "name": "${defaultTitle}",
           "url": "${siteUrl}",
           "image": "${defaultImage}",
           "sameAs": [
@@ -48,7 +47,7 @@ const SEO = ({title, description, image, article}) => {
             "${githubUrl}",
             "${linkedinUrl}",
           ],
-          "jobTitle": "Developer and Engineer"  
+          "jobTitle": "${defaultDescription}"  
         }
       `}
       </script>
