@@ -26,6 +26,24 @@ const SEO = ({title, description, image, article}) => {
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
+      <script type="application/ld+json">
+        {`  
+        {
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          "name": "Arkadip Bhattacharya",
+          "url": "https://v2.arkadip.me",
+          "image": "",
+          "sameAs": [
+            "https://www.facebook.com/arkadipb",
+            "https://twitter.com/Arkadipb21",
+            "https://www.instagram.com/__dark_matter/",
+            "https://www.linkedin.com/in/arkadip/"
+          ],
+          "jobTitle": "Developer and Engineer"  
+        }
+      `}
+      </script>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
