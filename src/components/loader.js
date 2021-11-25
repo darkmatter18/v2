@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
-import {useStaticQuery, graphql} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import clsx from 'clsx';
 import LoaderIcon from '../icons/LoaderIcon';
 
@@ -37,8 +37,17 @@ const Loader = ({finishLoading}) => {
         .add({
           targets: '#title_container',
           duration: 1000,
-          easing: 'linear',
+          easing: 'easeOutCubic',
           scale: 0,
+        })
+        .add({
+          targets: '#title_container',
+          duration: 200,
+          width: 0,
+          height: 0,
+        })
+        .add({
+          delay: 200,
         });
   };
 
@@ -62,7 +71,7 @@ const Loader = ({finishLoading}) => {
           <div className={'flex'}>
             <LoaderIcon isOnLoader={true}/>
           </div>
-          <div id="title_container" className={'flex flex-col'} >
+          <div id="title_container" className={'flex flex-col'}>
             <div id="subtitle" className={'text-neon-violet'}>
               {descriptionSmall}
             </div>
