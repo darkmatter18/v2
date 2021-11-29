@@ -42,12 +42,17 @@ const Loader = ({finishLoading}) => {
         })
         .add({
           targets: '#title_container',
-          duration: 200,
+          duration: 1000,
+          easing: 'easeInOutExpo',
           width: 0,
           height: 0,
         })
         .add({
-          delay: 200,
+          targets: '#logo',
+          duration: 100,
+          easing: 'linear',
+          opacity: 0,
+          scale: 2,
         });
   };
 
@@ -64,8 +69,7 @@ const Loader = ({finishLoading}) => {
     <>
       <div className={
         clsx('container', isMounted ? 'opacity-100' : 'opacity-0',
-            'min-h-screen', 'flex', 'justify-center', 'items-center',
-            'bg-deep-blue')}>
+            'min-h-screen', 'flex', 'justify-center', 'items-center')}>
         <div className={clsx('inline-flex', 'items-center',
             'space-x-4')}>
           <div className={'flex'}>
