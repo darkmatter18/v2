@@ -13,7 +13,6 @@ module.exports = {
         'neon-violet': '#E100F5',
         'deep-red': '#330408',
         'deep-blue': '#111935',
-
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',

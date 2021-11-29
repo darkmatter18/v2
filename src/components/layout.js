@@ -15,13 +15,15 @@ const Layout = ({children, location}) => {
   const [isLoading, setIsLoading] = React.useState(isHome);
   return (
     <>
-      {(isLoading && isHome) ? (
+      <main className={'bg-deep-blue'}>
+        {(isLoading && isHome) ? (
         <Loader finishLoading={()=>setIsLoading(false)}/>
       ): (
         <div>
           {children}
         </div>
       )}
+      </main>
     </>
   );
 };

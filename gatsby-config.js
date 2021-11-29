@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Arkadip`,
+    title: `Arkadip Bhattacharya`,
     titleTemplate: '%s | Arkadip',
     description: `A Computer science and Engineering student, 
     Deep Learning and Computer Vision 
     engineer and a web developer`,
+    descriptionSmall: `Developer`,
     siteUrl: 'https://v2.arkadip.me',
     image: '/images/icon.png',
     author: `@darkmatter18`,
