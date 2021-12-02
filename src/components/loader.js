@@ -79,7 +79,10 @@ const Loader = ({finishLoading}) => {
             <div id="subtitle" className={'text-neon-violet'}>
               {descriptionSmall}
             </div>
-            <div className={'text-neon-violet text-4xl tracking-tighter'}>
+            <div
+              className={'text-neon-violet ' +
+              'text-xl sm:text-4xl tracking-tighter'}
+            >
               {title}
             </div>
           </div>
