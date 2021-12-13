@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hero from '../components/sections/hero';
+import Nav from '../components/sections/nav';
 
 // markup
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <SEO title="Home"/>
+      <Nav/>
       <Hero/>
     </Layout>
   );
