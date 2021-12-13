@@ -32,6 +32,12 @@ module.exports = {
         handle: 'arkadipb',
       },
     },
+    utils: {
+      delay: {
+        navDelay: 1000,
+        loaderDelay: 2000,
+      },
+    },
   },
   plugins: [
     'gatsby-plugin-postcss',
