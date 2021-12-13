@@ -3,22 +3,26 @@ import Particles from 'react-tsparticles';
 
 const ParticleComponent = () => {
   return (
-    <div className={'relative'}>
+    <div className={'relative col-span-2'}>
       <Particles
         className={'absolute h-screen pl-3'}
         options={
           {
             fullScreen: false,
             particles: {
+              color: {
+                value: '#ff3f83',
+              },
               links: {
                 distance: 100,
                 enable: true,
+                color: '#ff3f83',
               },
               move: {
                 enable: true,
               },
               size: {
-                value: 1,
+                value: 3,
               },
               shape: {
                 type: 'circle',

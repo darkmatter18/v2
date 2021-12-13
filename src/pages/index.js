@@ -2,21 +2,24 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import ParticleComponent from '../components/particleComponent';
 
 // markup
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <SEO title="Arkadip"/>
-      <main>
-        <div className={'h-screen grid grid-cols-2'}>
-          <div className={'text-neon-violet'}>
-            Main
-          </div>
-          <ParticleComponent/>
-        </div>
-      </main>
+      <div className={'h-screen text-neon-violet' +
+            'flex flex-col justify-center pl-20 overflow-x-visible z-10'}>
+        <h1 className={'text-5xl font-light font-nunito'}>Hello World</h1>
+        <h2 className={'text-7xl font-normal font-nunito'}>
+          <span className={'text-neon-violet overflow-clip'}>
+                Hi, I&apos;m Arkadip
+          </span>
+        </h2>
+        <p className={'text-2xl font-plex'}>
+              I&apos;m a software engineer based in India.
+        </p>
+      </div>
     </Layout>
   );
 };
