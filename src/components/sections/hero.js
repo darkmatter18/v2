@@ -16,6 +16,7 @@ const Hero = () => {
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const one = (
@@ -53,17 +54,20 @@ const Hero = () => {
       ): (
         <>
           <TransitionGroup component={null}>
-            {isMounted && items.map((item, index) => (
-              <CSSTransition
-                key={index}
-                classNames={'fadeup'}
-                timeout={loaderDelay}
-              >
-                <div style={{transitionDelay: `${item + 1}00ms`}}>
-                  {item}
-                </div>
-              </CSSTransition>
-            ))}
+            {isMounted &&
+              items.map((item, i) => (
+                <CSSTransition
+                  key={i}
+                  classNames="fadeup"
+                  timeout={loaderDelay}
+                >
+                  <div
+                    style={{transitionDelay: `${i + 1}00ms`}}
+                  >
+                    {item}
+                  </div>
+                </CSSTransition>
+              ))}
           </TransitionGroup>
         </>
       )}

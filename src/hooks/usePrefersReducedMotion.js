@@ -31,6 +31,7 @@ function usePrefersReducedMotion() {
     return () => {
       mediaQueryList.removeEventListener('change', listener);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return prefersReducedMotion;
 }
