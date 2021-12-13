@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
-      <SEO title="Arkadip"/>
+      <SEO title="Home"/>
       <div className={'h-screen ' +
             'flex flex-col justify-center pl-5 sm:pl-20'}>
         <h1 className={'text-2xl sm:text-5xl text-neon-violet-light' +
