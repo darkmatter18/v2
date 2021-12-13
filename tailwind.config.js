@@ -18,6 +18,10 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',
       },
     },
+    fontFamily: {
+      nunito: ['Nunito', 'sans-serif'],
+      plex: ['IBM Plex Sans', 'sans-serif'],
+    },
   },
   variants: {
     extend: {},
