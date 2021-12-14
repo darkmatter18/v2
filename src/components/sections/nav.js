@@ -1,12 +1,40 @@
 import React from 'react';
 import clsx from 'clsx';
 import NavIcon from '../../icons/NavIcon';
+import {graphql, useStaticQuery} from 'gatsby';
+import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import NavLink from '../utils/navLink';
 
 const Nav = () => {
+  const {site: {siteMetadata: {nav, utils:
+    {delay: {loaderDelay, navDelay}}}}} = useStaticQuery(query_);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  React.useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const timeout = setTimeout(() => setIsMounted(true), navDelay);
+    return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const resumeLink = (
+    <a
+      className="px-4 py-2 mt-2 md:mt-0 md:ml-4 text-sm font-semibold
+      rounded-lg hover:bg-gray-200 focus:bg-gray-200
+      text-neon-violet focus:text-neon-violet hover:text-neon-violet
+      border-2 hover:border-neon-violet
+      focus:outline-none focus:shadow-outline"
+      href="#">Portfolio</a>
+  );
+
   return (
     <div className="w-full text-neon-violet z-11 fixed">
-      {/* x-data="{ open: false }"*/}
       <div
         className="flex flex-col max-w-screen-xl px-4 mx-auto
         md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
@@ -19,40 +47,59 @@ const Nav = () => {
             <NavIcon open={isOpen} />
           </button>
         </div>
-        {/*  :class="{'flex': open, 'hidden': !open}"*/}
         <nav
           className={
             clsx('flex-col', 'flex-grow', 'pt-4',
                 'md:flex md:justify-end md:flex-row',
               isOpen ? 'flex' : 'hidden')
           }>
-          <a
-            className="px-4 py-2 mt-2 text-sm font-semibold
-             text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700
-             dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600
-             dark-mode:focus:text-white dark-mode:hover:text-white
-             dark-mode:text-gray-200 md:mt-0 hover:text-gray-900
-             focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200
-             focus:outline-none focus:shadow-outline"
-            href="#">Blog</a>
-          <a
-            className="px-4 py-2 mt-2 text-sm font-semibold
-            bg-transparent rounded-lg dark-mode:bg-transparent
-            dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600
-            dark-mode:focus:text-white dark-mode:hover:text-white
-            dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900
-            focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200
-            focus:outline-none focus:shadow-outline"
-            href="#">Portfolio</a>
-          <a
-            className="px-4 py-2 mt-2 text-sm font-semibold
-            bg-transparent rounded-lg dark-mode:bg-transparent
-            dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600
-            dark-mode:focus:text-white dark-mode:hover:text-white
-            dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900
-            focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200
-            focus:outline-none focus:shadow-outline"
-            href="#">About</a>
+          {prefersReducedMotion ? (
+            <>
+              {nav.map((item, i)=>{
+                return (
+                  <NavLink
+                    key={i}
+                    url={item.link}
+                    index={i+1}
+                    name={item.name}
+                  />
+                );
+              })}
+              {resumeLink}
+            </>
+          ) : (
+            <>
+              <TransitionGroup component={null}>
+                {isMounted &&
+                  nav.map((item, i) => (
+                    <CSSTransition
+                      key={i}
+                      classNames="fadeup"
+                      timeout={loaderDelay}
+                    >
+                      <div
+                        style={{transitionDelay: `${i + 1}00ms`}}
+                      >
+                        <NavLink
+                          url={item.link}
+                          index={i+1}
+                          name={item.name}
+                        />
+                      </div>
+                    </CSSTransition>
+                  ))}
+              </TransitionGroup>
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition classNames={'fadeup'} timeout={loaderDelay}>
+                    <div style={{transitionDelay: `${nav.length * 100}ms`}}>
+                      {resumeLink}
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+            </>
+          )}
         </nav>
       </div>
     </div>
@@ -60,3 +107,22 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+const query_ = graphql`
+  query Particle {
+  site {
+    siteMetadata {
+      nav {
+        link
+        name
+      }
+      utils {
+        delay {
+          loaderDelay
+          navDelay
+        }
+      }
+    }
+  }
+}`;
