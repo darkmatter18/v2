@@ -25,12 +25,17 @@ const Nav = () => {
 
   const resumeLink = (
     <a
-      className="px-4 py-2 mt-2 md:mt-0 md:ml-4 text-sm font-semibold
-      rounded-lg hover:bg-gray-200 focus:bg-gray-200
+      className="transition ease-in-out delay-150 hover:-translate-y-1
+      hover:scale-110 hover:bg-gray-200 duration-300
+      px-4 py-2 mt-2 md:mt-0 md:ml-4 text-sm font-semibold
+      rounded-lg focus:bg-gray-200
       text-neon-violet focus:text-neon-violet hover:text-neon-violet
       border-2 hover:border-neon-violet
       focus:outline-none focus:shadow-outline"
-      href="#">Portfolio</a>
+      href="/resume.pdf"
+    >
+      Resume
+    </a>
   );
 
   return (
