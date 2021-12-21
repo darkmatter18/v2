@@ -33,6 +33,7 @@ const Nav = () => {
       border-2 hover:border-neon-violet
       focus:outline-none focus:shadow-outline"
       href="/resume.pdf"
+      target="_blank"
     >
       Resume
     </a>
