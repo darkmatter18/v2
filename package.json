@@ -41,8 +41,8 @@
     "react-tsparticles": "1.39.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.1.0",
-    "@commitlint/config-conventional": "16.0.0",
+    "@commitlint/cli": "16.2.1",
+    "@commitlint/config-conventional": "16.2.1",
     "autoprefixer": "10.4.2",
     "eslint": "7.32.0",
     "eslint-config-google": "0.14.0",
