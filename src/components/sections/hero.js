@@ -57,8 +57,8 @@ const Hero = () => {
 
   return (
     <div className={'h-screen ' +
-            'flex flex-col justify-center container mx-auto px-24'}>
-      <div className={'mx-10'}>
+            'flex flex-col justify-center container mx-auto pl-5 sm:px-24'}>
+      <div className={'sm:mx-10'}>
         {prefersReducedMotion ? (
                     <>
                       {items.map((item, index) => (
