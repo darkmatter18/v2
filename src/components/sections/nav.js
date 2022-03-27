@@ -66,9 +66,9 @@ const Nav = ({location}) => {
   return (
     <div className="w-full text-neon-violet z-11 fixed">
       <div
-        className="flex flex-col max-w-screen-xl mx-auto pt-4
-        md:items-center md:justify-between md:flex-row">
-        <div>
+        className="flex items-center justify-between max-w-screen-xl
+        mx-auto pt-4 md:items-center md:justify-between md:flex-row">
+        <div className={'pl-5 float-left'}>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={'fade'} timeout={loaderDelay}>
@@ -77,7 +77,7 @@ const Nav = ({location}) => {
             )}
           </TransitionGroup>
         </div>
-        <div className="p-4 flex flex-row items-center justify-end">
+        <div className="p-4 flex flex-row items-center justify-end float-right">
           <button
             className="md:hidden rounded-lg focus:outline-none
             focus:shadow-outline"
