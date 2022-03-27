@@ -76,11 +76,11 @@ const Loader = ({finishLoading}) => {
             <LoaderIcon isOnLoader={true}/>
           </div>
           <div id="title_container" className={'flex flex-col'}>
-            <div id="subtitle" className={'text-neon-violet'}>
+            <div id="subtitle" className={'text-neon-teal'}>
               {descriptionSmall}
             </div>
             <div
-              className={'text-neon-violet ' +
+              className={'text-neon-pink ' +
               'text-xl sm:text-4xl tracking-tighter'}
             >
               {title}
