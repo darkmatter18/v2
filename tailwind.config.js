@@ -16,7 +16,7 @@ module.exports = {
         'deep-blue': '#112240',
         'neon-teal': '#6EDCD9',
         'neon-purple': '#9254C8',
-        'neon-pink': '#E15FED',
+        'neon-pink': '#FA58B6',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',
