@@ -41,14 +41,14 @@ const Hero = () => {
   const four = (
     <p className={'text-base text-neon-pink mt-5 max-w-xl'}>
       {'I’m a software engineer specializing in building Web Backend' +
-              ' and Cloud based Solutions. ' +
-              'Currently, I’m focused on building accessible, ' +
-              'Agri-tech product at '}
+                ' and Cloud based Solutions. ' +
+                'Currently, I’m focused on building accessible, ' +
+                'Agri-tech product at '}
       <a
         href={'https://www.digite.com/'}
         className={'text-neon-teal font-bold'}
       >
-          Digité, Inc.
+                Digité, Inc.
       </a>
     </p>
   );
