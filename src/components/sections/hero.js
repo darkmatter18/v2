@@ -5,7 +5,7 @@ import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
 
 const Hero = () => {
   const {site: {siteMetadata: {utils: {delay: {loaderDelay, navDelay}}}}} =
-    useStaticQuery(query_);
+        useStaticQuery(query_);
   const [isMounted, setIsMounted] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -20,21 +20,21 @@ const Hero = () => {
   }, []);
 
   const one = (
-    <h1 className={'text-2xl sm:text-5xl text-neon-violet-light' +
-      ' font-light font-nunito'}>
-      Hello World
+    <h1 className={'text-xl sm:text-3xl text-neon-teal' +
+            ' font-light font-lato'}>
+            Hello World
     </h1>
   );
   const two = (
-    <h2 className={'text-4xl sm:text-7xl font-normal font-nunito'}>
-      <span className={'text-neon-violet overflow-clip'}>
-                Hi, I&apos;m Arkadip
-      </span>
+    <h2 className={'text-4xl sm:text-7xl font-lato ' +
+            'font-semibold text-neon-purple'}>
+            Hi, I&apos;m Arkadip.
     </h2>
   );
   const three = (
-    <p className={'sm:text-2xl text-neon-violet font-plex'}>
-      I&apos;m a software engineer based in India.
+    <p className={'text-2xl sm:text-5xl text-neon-pink ' +
+            'font-semibold font-plex'}>
+            I&apos;m a Software Developer.
     </p>
   );
 
@@ -42,35 +42,37 @@ const Hero = () => {
 
   return (
     <div className={'h-screen ' +
-      'flex flex-col justify-center pl-5 sm:pl-20'}>
-      {prefersReducedMotion ? (
-        <>
-          {items.map((item, index) => (
-            <div key={index}>
-              {item}
-            </div>
-          ))}
-        </>
-      ): (
-        <>
-          <TransitionGroup component={null}>
-            {isMounted &&
-              items.map((item, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={loaderDelay}
-                >
-                  <div
-                    style={{transitionDelay: `${i + 1}00ms`}}
-                  >
-                    {item}
-                  </div>
-                </CSSTransition>
-              ))}
-          </TransitionGroup>
-        </>
-      )}
+            'flex flex-col justify-center container mx-auto px-24'}>
+      <div className={'mx-10'}>
+        {prefersReducedMotion ? (
+                    <>
+                      {items.map((item, index) => (
+                        <div key={index}>
+                          {item}
+                        </div>
+                      ))}
+                    </>
+                ) : (
+                    <>
+                      <TransitionGroup component={null}>
+                        {isMounted &&
+                                items.map((item, i) => (
+                                  <CSSTransition
+                                    key={i}
+                                    classNames="fadeup"
+                                    timeout={loaderDelay}
+                                  >
+                                    <div
+                                      style={{transitionDelay: `${i + 1}00ms`}}
+                                    >
+                                      {item}
+                                    </div>
+                                  </CSSTransition>
+                                ))}
+                      </TransitionGroup>
+                    </>
+                )}
+      </div>
     </div>
   );
 };
