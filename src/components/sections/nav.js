@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import NavIcon from '../../icons/NavIcon';
+import IconNav from '../../icons/IconNav';
 import {graphql, useStaticQuery} from 'gatsby';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
@@ -50,7 +50,7 @@ const Nav = () => {
             focus:shadow-outline"
             onClick={() => setIsOpen((open)=> !open)}
           >
-            <NavIcon open={isOpen} />
+            <IconNav open={isOpen} />
           </button>
         </div>
         <nav

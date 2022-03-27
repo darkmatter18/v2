@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const LoaderIcon = ({isOnLoader}) => (
+const IconLoader = ({isOnLoader}) => (
   <svg id="logo" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" className={'w-20'}>
     <g id="A" className={clsx(isOnLoader ? 'opacity-0' : 'opacity-100')}>
       <path
@@ -25,9 +25,9 @@ const LoaderIcon = ({isOnLoader}) => (
   </svg>
 );
 
-LoaderIcon.propTypes = {
+IconLoader.propTypes = {
   isOnLoader: PropTypes.bool.isRequired,
 };
 
 
-export default LoaderIcon;
+export default IconLoader;

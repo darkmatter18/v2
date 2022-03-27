@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NavIcon = ({open}) => {
+const IconNav = ({open}) => {
   return (
     <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
       {open ? (
@@ -22,8 +22,8 @@ const NavIcon = ({open}) => {
   );
 };
 
-NavIcon.propTypes = {
+IconNav.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-export default NavIcon;
+export default IconNav;
