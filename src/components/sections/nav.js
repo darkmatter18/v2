@@ -1,14 +1,24 @@
-import React from 'react';
 import clsx from 'clsx';
-import IconNav from '../../icons/IconNav';
-import {graphql, useStaticQuery} from 'gatsby';
-import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Link, graphql, useStaticQuery} from 'gatsby';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
+import IconNav from '../../icons/IconNav';
+import IconLogo from '../../icons/IconLogo';
+import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
 import NavLink from '../utils/navLink';
 
-const Nav = () => {
-  const {site: {siteMetadata: {nav, utils:
-    {delay: {loaderDelay, navDelay}}}}} = useStaticQuery(query_);
+const Nav = ({location}) => {
+  const isHome = location.pathname === '/';
+  const {
+    site: {
+      siteMetadata: {
+        nav, utils:
+          {delay: {loaderDelay, navDelay}},
+      },
+    },
+  } = useStaticQuery(query_);
   const [isOpen, setIsOpen] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -22,6 +32,20 @@ const Nav = () => {
     return () => clearTimeout(timeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const Logo = (
+    <div className="logo" tabIndex="-1">
+      {isHome ? (
+        <a href="/" aria-label="home">
+          <IconLogo/>
+        </a>
+      ) : (
+        <Link to="/" aria-label="home">
+          <IconLogo/>
+        </Link>
+      )}
+    </div>
+  );
 
   const resumeLink = (
     <a
@@ -42,31 +66,40 @@ const Nav = () => {
   return (
     <div className="w-full text-neon-violet z-11 fixed">
       <div
-        className="flex flex-col max-w-screen-xl px-4 mx-auto
-        md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        className="flex flex-col max-w-screen-xl mx-auto pt-4
+        md:items-center md:justify-between md:flex-row">
+        <div>
+          <TransitionGroup component={null}>
+            {isMounted && (
+              <CSSTransition classNames={'fade'} timeout={loaderDelay}>
+                <>{Logo}</>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
+        </div>
         <div className="p-4 flex flex-row items-center justify-end">
           <button
             className="md:hidden rounded-lg focus:outline-none
             focus:shadow-outline"
-            onClick={() => setIsOpen((open)=> !open)}
+            onClick={() => setIsOpen((open) => !open)}
           >
-            <IconNav open={isOpen} />
+            <IconNav open={isOpen}/>
           </button>
         </div>
         <nav
           className={
-            clsx('flex-col', 'flex-grow', 'pt-4',
+            clsx('flex-col', 'flex-grow',
                 'md:flex md:justify-end md:flex-row',
               isOpen ? 'flex' : 'hidden')
           }>
           {prefersReducedMotion ? (
             <>
-              {nav.map((item, i)=>{
+              {nav.map((item, i) => {
                 return (
                   <NavLink
                     key={i}
                     url={item.link}
-                    index={i+1}
+                    index={i + 1}
                     name={item.name}
                   />
                 );
@@ -80,7 +113,7 @@ const Nav = () => {
                   nav.map((item, i) => (
                     <CSSTransition
                       key={i}
-                      classNames="fadeup"
+                      classNames="fadedown"
                       timeout={loaderDelay}
                     >
                       <div
@@ -88,7 +121,7 @@ const Nav = () => {
                       >
                         <NavLink
                           url={item.link}
-                          index={i+1}
+                          index={i + 1}
                           name={item.name}
                         />
                       </div>
@@ -97,7 +130,7 @@ const Nav = () => {
               </TransitionGroup>
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition classNames={'fadeup'} timeout={loaderDelay}>
+                  <CSSTransition classNames={'fadedown'} timeout={loaderDelay}>
                     <div style={{transitionDelay: `${nav.length * 100}ms`}}>
                       {resumeLink}
                     </div>
@@ -112,8 +145,11 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+Nav.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
+export default Nav;
 
 const query_ = graphql`
   query Particle {
