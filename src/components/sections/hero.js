@@ -39,7 +39,7 @@ const Hero = () => {
     </h2>
   );
   const three = (
-    <p className={'text-2xl sm:text-5xl text-neon-pink ' +
+    <p className={'text-2xl sm:text-5xl text-yellow-300 ' +
             'font-semibold font-plex'}>
             I&apos;m a Software Developer.
     </p>
