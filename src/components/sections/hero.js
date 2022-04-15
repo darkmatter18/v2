@@ -2,6 +2,11 @@ import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
+import IconWrapper from '../utils/IconWrapper';
+import IconFacebook from '../../icons/IconFacebook';
+import IconInstagram from '../../icons/IconInstagram';
+import IconGithub from '../../icons/IconGithub';
+import IconTwitter from '../../icons/IconTwitter';
 
 const Hero = () => {
   const {site: {siteMetadata: {utils: {delay: {loaderDelay, navDelay}}}}} =
@@ -53,7 +58,24 @@ const Hero = () => {
     </p>
   );
 
-  const items = [one, two, three, four];
+  const five = (
+    <div className={'flex space-x-6 mt-5'}>
+      <IconWrapper href={'aa'}>
+        <IconFacebook/>
+      </IconWrapper>
+      <IconWrapper href={'aa'}>
+        <IconInstagram/>
+      </IconWrapper>
+      <IconWrapper href={'aa'}>
+        <IconGithub/>
+      </IconWrapper>
+      <IconWrapper href={'aa'}>
+        <IconTwitter/>
+      </IconWrapper>
+    </div>
+  );
+
+  const items = [one, two, three, four, five];
 
   return (
     <div className={'h-screen ' +
