@@ -3,9 +3,8 @@ import React from 'react';
 const IconGithub = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-    width="50" height="50"
+    className={'w-9'}
     viewBox="0 0 50 50"
-    style=" fill:#000000;"
   >
     <path
       d="M 25 2 C 12.311335 2 2 12.311335 2 25 C 2 37.688665 12.311335
@@ -92,6 +91,7 @@ const IconGithub = () => (
             13.29577 37.55443 12.894531 36.751953 L 12.886719 36.738281 L
             12.880859 36.726562 C 12.716457 36.421191 12.500645 35.81059
             12.308594 35.28125 z"
+      className={'fill-current text-neon-pink'}
     />
   </svg>
 );

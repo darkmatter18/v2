@@ -3,9 +3,8 @@ import React from 'react';
 const IconInstagram = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-    width="50" height="50"
+    className={'w-9'}
     viewBox="0 0 50 50"
-    style=" fill:#000000;"
   >
     <path
       d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516
@@ -20,6 +19,7 @@ const IconInstagram = () => (
             18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34
             20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593
             34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"
+      className={'fill-current text-neon-pink'}
     />
   </svg>
 );

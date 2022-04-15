@@ -3,9 +3,9 @@ import React from 'react';
 const IconTwitter = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-    width="50" height="50"
+    className={'w-9'}
     viewBox="0 0 50 50"
-    style=" fill:#000000;">
+  >
     <path
       d="M 34.21875 5.46875 C 28.238281 5.46875 23.375 10.332031
              23.375 16.3125 C 23.375 16.671875 23.464844 17.023438 23.5
@@ -69,6 +69,7 @@ const IconTwitter = () => (
                25.625 18.34375 C 25.472656 17.695313 25.375 17.007813 25.375
                16.3125 C 25.375 11.414063 29.320313 7.46875 34.21875
                7.46875 Z"
+      className={'fill-current text-neon-pink'}
     />
   </svg>
 );

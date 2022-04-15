@@ -3,9 +3,8 @@ import React from 'react';
 const IconFacebook = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-    width="50" height="50"
+    className={'w-9'}
     viewBox="0 0 50 50"
-    style=" fill:#000000;"
   >
     <path
       d="M 25 3 C 12.861562 3 3 12.861562 3 25 C 3 36.019135 11.127533
@@ -32,7 +31,8 @@ const IconFacebook = () => (
             21.652246 15.689426 20.861328 18.170128 20.861328 21.373047 L
             20.861328 24.046875 L 15.664062 24.046875 L 15.664062 31.566406
             L 20.861328 31.566406 L 20.861328 44.470703 C 11.816995 42.554813
-            5 34.624447 5 25 C 5 13.942438 13.942438 5 25 5 z"/></svg>
+            5 34.624447 5 25 C 5 13.942438 13.942438 5 25 5 z"
+      className={'fill-current text-neon-pink'}/></svg>
 );
 
 export default IconFacebook;
