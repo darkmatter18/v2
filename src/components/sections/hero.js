@@ -8,6 +8,7 @@ import IconInstagram from '../../icons/IconInstagram';
 import IconGithub from '../../icons/IconGithub';
 import IconTwitter from '../../icons/IconTwitter';
 import IconLinkedin from '../../icons/IconLinkedin';
+import {OutboundLink} from 'gatsby-plugin-google-gtag';
 
 const Hero = () => {
   const {site: {siteMetadata: {utils: {delay: {loaderDelay, navDelay}},
@@ -51,12 +52,12 @@ const Hero = () => {
                 ' and Cloud based Solutions. ' +
                 'Currently, I’m focused on building accessible, ' +
                 'Agri-tech product at '}
-      <a
+      <OutboundLink
         href={'https://www.digite.com/'}
         className={'text-neon-teal font-bold'}
       >
                 Digité, Inc.
-      </a>
+      </OutboundLink>
     </p>
   );
 
