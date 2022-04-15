@@ -7,9 +7,11 @@ import IconFacebook from '../../icons/IconFacebook';
 import IconInstagram from '../../icons/IconInstagram';
 import IconGithub from '../../icons/IconGithub';
 import IconTwitter from '../../icons/IconTwitter';
+import IconLinkedin from '../../icons/IconLinkedin';
 
 const Hero = () => {
-  const {site: {siteMetadata: {utils: {delay: {loaderDelay, navDelay}}}}} =
+  const {site: {siteMetadata: {utils: {delay: {loaderDelay, navDelay}},
+    social: {facebook, github, instagram, linkedin, twitter}}}} =
         useStaticQuery(query_);
   const [isMounted, setIsMounted] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -60,17 +62,20 @@ const Hero = () => {
 
   const five = (
     <div className={'flex space-x-6 mt-5'}>
-      <IconWrapper href={'aa'}>
-        <IconFacebook/>
+      <IconWrapper href={linkedin.url}>
+        <IconLinkedin/>
       </IconWrapper>
-      <IconWrapper href={'aa'}>
-        <IconInstagram/>
-      </IconWrapper>
-      <IconWrapper href={'aa'}>
+      <IconWrapper href={github.url}>
         <IconGithub/>
       </IconWrapper>
-      <IconWrapper href={'aa'}>
+      <IconWrapper href={twitter.url}>
         <IconTwitter/>
+      </IconWrapper>
+      <IconWrapper href={facebook.url}>
+        <IconFacebook/>
+      </IconWrapper>
+      <IconWrapper href={instagram.url}>
+        <IconInstagram/>
       </IconWrapper>
     </div>
   );
@@ -117,13 +122,30 @@ const Hero = () => {
 export default Hero;
 
 const query_ = graphql`
-  query DelayInfo {
+  query HeroQuery {
   site {
     siteMetadata {
       utils {
         delay {
           loaderDelay
           navDelay
+        }
+      }
+      social {
+        facebook {
+          url
+        }
+        github {
+          url
+        }
+        instagram {
+          url
+        }
+        linkedin {
+          url
+        }
+        twitter {
+          url
         }
       }
     }
