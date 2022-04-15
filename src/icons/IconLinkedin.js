@@ -43,7 +43,7 @@ const IconLinkedin = () => (
     29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625
     25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21
     21 z"
-      className={'fill-current text-neon-pink'}
+      className={'fill-current text-yellow-200'}
     />
   </svg>
 );

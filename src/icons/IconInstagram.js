@@ -19,7 +19,7 @@ const IconInstagram = () => (
             18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34
             20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593
             34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"
-      className={'fill-current text-neon-pink'}
+      className={'fill-current text-yellow-200'}
     />
   </svg>
 );

@@ -32,7 +32,7 @@ const IconFacebook = () => (
             20.861328 24.046875 L 15.664062 24.046875 L 15.664062 31.566406
             L 20.861328 31.566406 L 20.861328 44.470703 C 11.816995 42.554813
             5 34.624447 5 25 C 5 13.942438 13.942438 5 25 5 z"
-      className={'fill-current text-neon-pink'}/></svg>
+      className={'fill-current text-yellow-200'}/></svg>
 );
 
 export default IconFacebook;

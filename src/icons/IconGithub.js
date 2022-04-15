@@ -91,7 +91,7 @@ const IconGithub = () => (
             13.29577 37.55443 12.894531 36.751953 L 12.886719 36.738281 L
             12.880859 36.726562 C 12.716457 36.421191 12.500645 35.81059
             12.308594 35.28125 z"
-      className={'fill-current text-neon-pink'}
+      className={'fill-current text-yellow-200'}
     />
   </svg>
 );
