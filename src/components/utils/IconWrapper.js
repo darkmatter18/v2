@@ -6,6 +6,7 @@ const IconWrapper = ({children, href}) => {
   return (
     <OutboundLink
       href={href}
+      target={'_blank'}
       className={'transition duration-500 hover:scale-125'}>
       {children}
     </OutboundLink>

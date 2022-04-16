@@ -61,6 +61,7 @@ const Hero = () => {
         'Agri-tech product at '}
       <OutboundLink
         href={'https://www.digite.com/'}
+        target={'_blank'}
         className={'text-neon-teal font-bold'}
       >
         Digité, Inc.
