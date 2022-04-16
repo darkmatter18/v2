@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import anime from 'animejs';
 import {graphql, useStaticQuery} from 'gatsby';
 import clsx from 'clsx';
-import LoaderIcon from '../icons/LoaderIcon';
+import IconLoader from '../icons/IconLoader';
 
 const Loader = ({finishLoading}) => {
   const {site} = useStaticQuery(query);
@@ -73,7 +73,7 @@ const Loader = ({finishLoading}) => {
         <div className={clsx('inline-flex', 'items-center',
             'space-x-4')}>
           <div className={'flex'}>
-            <LoaderIcon isOnLoader={true}/>
+            <IconLoader isOnLoader={true}/>
           </div>
           <div id="title_container" className={'flex flex-col'}>
             <div id="subtitle" className={'text-neon-teal'}>

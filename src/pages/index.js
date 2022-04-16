@@ -10,7 +10,7 @@ const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <SEO title="Home"/>
-      <Nav/>
+      <Nav location={location}/>
       <Hero/>
     </Layout>
   );
