@@ -120,12 +120,20 @@ const Hero = () => {
                       </div>
                     </CSSTransition>
                   ))}
+                {isMounted && (
+                  <CSSTransition classNames={'fade'} timeout={loaderDelay}>
+                    <div
+                      className={'z-50 buttom-0 right-10 hidden sm:block ' +
+                        'absolute transition duration-500 hover:scale-125'}
+                      style={{transitionDelay:
+                          `${(items.length + 1) * 100}ms`}}>
+                      <IconLaptop/>
+                    </div>
+                  </CSSTransition>
+                )}
               </TransitionGroup>
             </>
           )}
-        </div>
-        <div className={'z-50 buttom-0 right-10 hidden sm:block absolute'}>
-          <IconLaptop/>
         </div>
       </div>
 
