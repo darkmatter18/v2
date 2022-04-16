@@ -72,7 +72,9 @@ const Nav = ({location}) => {
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={'fade'} timeout={loaderDelay}>
-                <>{Logo}</>
+                <div className={'transition duration-500 hover:scale-125'}>
+                  {Logo}
+                </div>
               </CSSTransition>
             )}
           </TransitionGroup>
