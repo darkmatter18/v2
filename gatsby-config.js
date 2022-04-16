@@ -16,7 +16,7 @@ module.exports = {
         handle: '@arkadipb21',
       },
       github: {
-        url: 'https://github.com/darmatter18',
+        url: 'https://github.com/darkmatter18',
         handle: '@darkmatter18',
       },
       linkedin: {
