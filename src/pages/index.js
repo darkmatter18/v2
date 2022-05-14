@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hero from '../components/sections/hero';
 import Nav from '../components/sections/nav';
+import About from '../components/sections/About';
 
 // markup
 const IndexPage = ({location}) => {
@@ -12,6 +13,7 @@ const IndexPage = ({location}) => {
       <SEO title="Home"/>
       <Nav location={location}/>
       <Hero/>
+      <About/>
     </Layout>
   );
 };

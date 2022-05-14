@@ -10,6 +10,7 @@ import IconTwitter from '../../icons/IconTwitter';
 import IconLinkedin from '../../icons/IconLinkedin';
 import {OutboundLink} from 'gatsby-plugin-google-gtag';
 import IconLaptop from '../../icons/IconLaptop';
+import {useParallax} from 'react-scroll-parallax';
 
 const Hero = () => {
   const {
@@ -23,6 +24,7 @@ const Hero = () => {
     useStaticQuery(query_);
   const [isMounted, setIsMounted] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const {ref} = useParallax({speed: 20});
 
   React.useEffect(() => {
     if (prefersReducedMotion) {
@@ -92,7 +94,7 @@ const Hero = () => {
   const items = [one, two, three, four, five];
 
   return (
-    <div className={'h-screen'}>
+    <div className={'h-screen'} ref={ref}>
       <div className={'h-screen flex flex-col justify-center ' +
         'container mx-auto pl-5 z-10 sm:px-24'}>
         <div className={'sm:mx-10'}>
