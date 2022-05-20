@@ -54,7 +54,7 @@
     "gatsby-plugin-postcss": "5.14.0",
     "husky": "8.0.1",
     "lint-staged": "12.4.1",
-    "postcss": "8.4.13",
+    "postcss": "8.4.14",
     "prop-types": "15.8.1",
     "tailwindcss": "3.0.24"
   },
