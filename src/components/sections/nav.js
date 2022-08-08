@@ -64,7 +64,7 @@ const Nav = ({location}) => {
   );
 
   return (
-    <div className="w-full text-neon-violet z-11 fixed">
+    <div className="w-full text-neon-violet z-20 fixed">
       <div
         className="flex items-center justify-between max-w-screen-xl
         mx-auto pt-4 md:items-center md:justify-between md:flex-row">
