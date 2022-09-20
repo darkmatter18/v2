@@ -6,7 +6,7 @@ module.exports = {
     Deep Learning and Computer Vision 
     engineer and a web developer`,
     descriptionSmall: `Developer`,
-    siteUrl: 'https://v2.arkadip.me',
+    siteUrl: 'https://arkadip.dev',
     image: '/images/icon.png',
     author: `@darkmatter18`,
     twitterUsername: '@arkadipb21',
@@ -55,6 +55,10 @@ module.exports = {
         name: 'Contact',
         link: '#contact',
       },
+      {
+        name: 'Blog',
+        link: 'https://blog.arkadip.dev'
+      }
     ],
   },
   plugins: [
