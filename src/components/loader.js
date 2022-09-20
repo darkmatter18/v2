@@ -68,7 +68,7 @@ const Loader = ({finishLoading}) => {
   return (
     <>
       <div className={
-        clsx('container', isMounted ? 'opacity-100' : 'opacity-0',
+        clsx(isMounted ? 'opacity-100' : 'opacity-0',
             'min-h-screen', 'flex', 'justify-center', 'items-center')}>
         <div className={clsx('inline-flex', 'items-center',
             'space-x-4')}>
