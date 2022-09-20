@@ -9,7 +9,7 @@ import IconLogo from '../../icons/IconLogo';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
 import NavLink from '../utils/navLink';
 
-const Nav = ({location}) => {
+const Nav = ({location, initialNavState}) => {
   const isHome = location.pathname === '/';
   const {
     site: {
@@ -19,7 +19,7 @@ const Nav = ({location}) => {
       },
     },
   } = useStaticQuery(query_);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(initialNavState);
   const [isMounted, setIsMounted] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -66,9 +66,9 @@ const Nav = ({location}) => {
   return (
     <div className="w-full text-neon-violet z-20 fixed">
       <div
-        className="flex items-center justify-between max-w-screen-xl
+        className="flex justify-between max-w-screen-xl
         mx-auto pt-4 md:items-center md:justify-between md:flex-row">
-        <div className={'pl-5 float-left'}>
+        <div className={clsx('pl-5 flex-grow float-left flex', isOpen? '': 'items-center')}>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={'fade'} timeout={loaderDelay}>
@@ -79,21 +79,20 @@ const Nav = ({location}) => {
             )}
           </TransitionGroup>
         </div>
-        <div className="p-4 flex flex-row items-center justify-end float-right">
-          <button
-            className="md:hidden rounded-lg focus:outline-none
-            focus:shadow-outline"
-            onClick={() => setIsOpen((open) => !open)}
-          >
-            <IconNav open={isOpen}/>
-          </button>
-        </div>
         <nav
           className={
             clsx('flex-col', 'flex-grow',
-                'md:flex md:justify-end md:flex-row',
-              isOpen ? 'flex' : 'hidden')
+                'md:flex md:justify-end md:flex-row')
           }>
+            <div className="p-4 flex flex-row items-center justify-end">
+              <button
+                className="md:hidden rounded-lg focus:outline-none
+                focus:shadow-outline"
+                onClick={() => setIsOpen((open) => !open)}
+              >
+                <IconNav open={isOpen}/>
+              </button>
+            </div>
           {prefersReducedMotion ? (
             <>
               {nav.map((item, i) => {
@@ -120,6 +119,7 @@ const Nav = ({location}) => {
                     >
                       <div
                         style={{transitionDelay: `${i + 1}00ms`}}
+                        className={clsx(isOpen ? 'flex' : 'hidden', 'justify-end')}
                       >
                         <NavLink
                           url={item.link}
@@ -133,7 +133,7 @@ const Nav = ({location}) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={'fadedown'} timeout={loaderDelay}>
-                    <div style={{transitionDelay: `${nav.length * 100}ms`}}>
+                    <div style={{transitionDelay: `${nav.length * 100}ms`}} className={clsx(isOpen ? 'flex' : 'hidden', 'justify-end')}>
                       {resumeLink}
                     </div>
                   </CSSTransition>
@@ -149,6 +149,7 @@ const Nav = ({location}) => {
 
 Nav.propTypes = {
   location: PropTypes.object.isRequired,
+  initialNavState: PropTypes.bool.isRequired
 };
 
 export default Nav;
