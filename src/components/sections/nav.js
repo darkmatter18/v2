@@ -15,7 +15,7 @@ const Nav = ({location, initialNavState}) => {
     site: {
       siteMetadata: {
         nav, utils:
-          {delay: {loaderDelay, navDelay}},
+        {delay: {loaderDelay, navDelay}},
       },
     },
   } = useStaticQuery(query_);
@@ -37,11 +37,11 @@ const Nav = ({location, initialNavState}) => {
     <div className="logo" tabIndex="-1">
       {isHome ? (
         <a href="/" aria-label="home">
-          <IconLogo/>
+          <IconLogo />
         </a>
       ) : (
         <Link to="/" aria-label="home">
-          <IconLogo/>
+          <IconLogo />
         </Link>
       )}
     </div>
@@ -69,7 +69,7 @@ const Nav = ({location, initialNavState}) => {
         className="flex justify-between max-w-screen-xl
         mx-auto pt-4 md:items-center md:justify-between md:flex-row">
         <div className={clsx('pl-5 flex-grow float-left flex',
-                              isOpen? '': 'items-start')}>
+          isOpen ? '' : 'items-start')}>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={'fade'} timeout={loaderDelay}>
@@ -83,20 +83,27 @@ const Nav = ({location, initialNavState}) => {
         <nav
           className={
             clsx('flex-col flex-grow md:flex md:justify-end md:flex-row',
-                  isOpen ? 'shadow-2xl' : '',
-                  'shadow-deep-blue-dark md:shadow-none',
-                  'min-h-screen md:min-h-fit opacity-95 rounded-tl-lg',
-                  isOpen ? 'bg-deep-blue-dark':'', 'md:bg-inherit')
+              isOpen ? 'shadow-2xl' : '',
+              'shadow-deep-blue-dark md:shadow-none',
+              'min-h-screen md:min-h-fit opacity-95 rounded-tl-lg',
+              isOpen ? 'bg-deep-blue-dark' : '', 'md:bg-inherit')
           }>
-          <div className="p-4 flex flex-row items-center justify-end">
-            <button
-              className="md:hidden rounded-lg focus:outline-none
-                focus:shadow-outline"
-              onClick={() => setIsOpen((open) => !open)}
-            >
-              <IconNav open={isOpen}/>
-            </button>
-          </div>
+          <TransitionGroup component={null}>
+            {isMounted && (
+              <CSSTransition classNames={'fadeup'} timeout={loaderDelay}>
+                <div className="p-4 flex flex-row items-center justify-end">
+                  <button
+                    className="md:hidden rounded-lg focus:outline-none
+                        focus:shadow-outline"
+                    onClick={() => setIsOpen((open) => !open)}
+                  >
+                    <IconNav open={isOpen} />
+                  </button>
+                </div>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
+          {/* NAV Links */}
           {prefersReducedMotion ? (
             <>
               {nav.map((item, i) => {
