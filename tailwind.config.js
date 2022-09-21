@@ -14,6 +14,7 @@ module.exports = {
         'neon-violet-light': '#eb3cfc',
         'deep-red': '#330408',
         'deep-blue': '#112240',
+        'deep-blue-dark': '#1e3e75',
         'neon-teal': '#6EDCD9',
         'neon-purple': '#9254C8',
         'neon-pink': '#FA58B6',
