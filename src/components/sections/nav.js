@@ -68,7 +68,8 @@ const Nav = ({location, initialNavState}) => {
       <div
         className="flex justify-between max-w-screen-xl
         mx-auto pt-4 md:items-center md:justify-between md:flex-row">
-        <div className={clsx('pl-5 flex-grow float-left flex', isOpen? '': 'items-center')}>
+        <div className={clsx('pl-5 flex-grow float-left flex',
+                              isOpen? '': 'items-start')}>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={'fade'} timeout={loaderDelay}>
@@ -81,18 +82,19 @@ const Nav = ({location, initialNavState}) => {
         </div>
         <nav
           className={
-            clsx('flex-col', 'flex-grow',
-                'md:flex md:justify-end md:flex-row')
+            clsx('flex-col flex-grow min-h-screen',
+                  isOpen ? 'bg-deep-blue-dark':'', 'md:bg-inherit',
+                  'md:min-h-fit md:flex md:justify-end md:flex-row')
           }>
-            <div className="p-4 flex flex-row items-center justify-end">
-              <button
-                className="md:hidden rounded-lg focus:outline-none
+          <div className="p-4 flex flex-row items-center justify-end">
+            <button
+              className="md:hidden rounded-lg focus:outline-none
                 focus:shadow-outline"
-                onClick={() => setIsOpen((open) => !open)}
-              >
-                <IconNav open={isOpen}/>
-              </button>
-            </div>
+              onClick={() => setIsOpen((open) => !open)}
+            >
+              <IconNav open={isOpen}/>
+            </button>
+          </div>
           {prefersReducedMotion ? (
             <>
               {nav.map((item, i) => {
@@ -119,7 +121,8 @@ const Nav = ({location, initialNavState}) => {
                     >
                       <div
                         style={{transitionDelay: `${i + 1}00ms`}}
-                        className={clsx(isOpen ? 'flex' : 'hidden', 'justify-end')}
+                        className={clsx(isOpen ? 'flex' : 'hidden',
+                            'justify-center')}
                       >
                         <NavLink
                           url={item.link}
@@ -133,7 +136,9 @@ const Nav = ({location, initialNavState}) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={'fadedown'} timeout={loaderDelay}>
-                    <div style={{transitionDelay: `${nav.length * 100}ms`}} className={clsx(isOpen ? 'flex' : 'hidden', 'justify-end')}>
+                    <div style={{transitionDelay: `${nav.length * 100}ms`}}
+                      className={clsx(isOpen ? 'flex' : 'hidden',
+                          'justify-center')}>
                       {resumeLink}
                     </div>
                   </CSSTransition>
@@ -149,7 +154,7 @@ const Nav = ({location, initialNavState}) => {
 
 Nav.propTypes = {
   location: PropTypes.object.isRequired,
-  initialNavState: PropTypes.bool.isRequired
+  initialNavState: PropTypes.bool.isRequired,
 };
 
 export default Nav;
