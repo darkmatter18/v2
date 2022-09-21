@@ -82,9 +82,11 @@ const Nav = ({location, initialNavState}) => {
         </div>
         <nav
           className={
-            clsx('flex-col flex-grow min-h-screen',
-                  isOpen ? 'bg-deep-blue-dark':'', 'md:bg-inherit',
-                  'md:min-h-fit md:flex md:justify-end md:flex-row')
+            clsx('flex-col flex-grow md:flex md:justify-end md:flex-row',
+                  isOpen ? 'shadow-2xl' : '',
+                  'shadow-deep-blue-dark md:shadow-none',
+                  'min-h-screen md:min-h-fit opacity-95 rounded-tl-lg',
+                  isOpen ? 'bg-deep-blue-dark':'', 'md:bg-inherit')
           }>
           <div className="p-4 flex flex-row items-center justify-end">
             <button
