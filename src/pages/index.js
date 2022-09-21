@@ -11,7 +11,11 @@ const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <SEO title="Home"/>
-      <Nav location={location} initialNavState={typeof window !== "undefined" && window.innerWidth > 768}/>
+      <Nav
+        location={location}
+        initialNavState={typeof window !== 'undefined' &&
+                        window.innerWidth > 768}
+      />
       <Hero/>
       <About/>
     </Layout>
