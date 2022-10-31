@@ -20,5 +20,6 @@ module.exports = {
     'react-hooks',
   ],
   'rules': {
+    'require-jsdoc': 1,
   },
 };
