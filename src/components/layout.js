@@ -7,7 +7,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
 import Loader from './loader';
 import {ParallaxProvider} from 'react-scroll-parallax';
 
@@ -17,9 +16,6 @@ const Layout = ({children, location}) => {
   const [isLoading, setIsLoading] = React.useState(isHome);
   return (
     <ParallaxProvider>
-      <Helmet>
-        <title>Arkadip</title>
-      </Helmet>
       <main className={'bg-deep-blue'}>
         {(isLoading && isHome) ? (
         <Loader finishLoading={()=>setIsLoading(false)}/>
