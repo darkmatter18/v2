@@ -57,8 +57,8 @@ module.exports = {
       },
       {
         name: 'Blog',
-        link: 'https://blog.arkadip.dev'
-      }
+        link: 'https://blog.arkadip.dev',
+      },
     ],
   },
   plugins: [
@@ -75,6 +75,12 @@ module.exports = {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: ['G-R4EKTLHVCE'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://arkadip.dev`,
       },
     },
     {
