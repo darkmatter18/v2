@@ -48,6 +48,8 @@ const SEO = ({title, description, image, article}) => {
 
       {seo.image && <meta property="og:image" content={seo.image} />}
 
+      <meta property="og:type" content="website" />
+
       <meta name="twitter:card" content="summary_large_image" />
 
       {twitterHandle && (
