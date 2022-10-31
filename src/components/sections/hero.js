@@ -37,16 +37,16 @@ const Hero = () => {
   }, []);
 
   const one = (
-    <h1 className={'text-xl sm:text-3xl text-neon-teal' +
+    <h2 className={'text-xl sm:text-3xl text-neon-teal' +
       ' font-light font-lato'}>
       Hello World
-    </h1>
+    </h2>
   );
   const two = (
-    <h2 className={'text-4xl sm:text-7xl font-lato ' +
+    <h1 className={'text-4xl sm:text-7xl font-lato ' +
       'font-semibold text-neon-purple'}>
       Hi, I&apos;m Arkadip.
-    </h2>
+    </h1>
   );
   const three = (
     <p className={'text-2xl sm:text-5xl text-yellow-300 ' +
