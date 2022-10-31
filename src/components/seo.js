@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
 import {useLocation} from '@reach/router';
 import {useStaticQuery, graphql} from 'gatsby';
 
@@ -10,7 +9,6 @@ const SEO = ({title, description, image, article}) => {
 
   const {
     defaultTitle,
-    titleTemplate,
     defaultDescription,
     siteUrl,
     defaultImage,
@@ -31,29 +29,13 @@ const SEO = ({title, description, image, article}) => {
   };
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
-      <script type="application/ld+json">
-        {`  
-        {
-          "@context": "https://schema.org/",
-          "@type": "Person",
-          "name": "${defaultTitle}",
-          "url": "${siteUrl}",
-          "image": "${defaultImage}",
-          "sameAs": [
-            "${facebookUrl}",
-            "${twitterUrl}",
-            "${instagramUrl}",
-            "${githubUrl}",
-            "${linkedinUrl}",
-          ],
-          "jobTitle": "${defaultDescription}"  
-        }
-      `}
-      </script>
+    <>
+      {/* Default Meta Tags */}
+      <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
+      {/* OG Tags */}
       {seo.url && <meta property="og:url" content={seo.url} />}
 
       {(article ? true : null) && <meta property="og:type" content="article" />}
@@ -79,7 +61,28 @@ const SEO = ({title, description, image, article}) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-    </Helmet>
+
+      {/* LD Json */}
+      <script type="application/ld+json">
+        {`  
+        {
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          "name": "${defaultTitle}",
+          "url": "${siteUrl}",
+          "image": "${defaultImage}",
+          "sameAs": [
+            "${facebookUrl}",
+            "${twitterUrl}",
+            "${instagramUrl}",
+            "${githubUrl}",
+            "${linkedinUrl}",
+          ],
+          "jobTitle": "${defaultDescription}"  
+        }
+      `}
+      </script>
+    </>
   );
 };
 
@@ -104,7 +107,6 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-        titleTemplate
         defaultDescription: description
         siteUrl
         defaultImage: image,

@@ -10,7 +10,6 @@ import About from '../components/sections/About';
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
-      <SEO title="Home"/>
       <Nav
         location={location}
         initialNavState={typeof window !== 'undefined' &&
@@ -27,3 +26,9 @@ IndexPage.propTypes = {
 };
 
 export default IndexPage;
+
+export function Head() {
+  return (
+    <SEO title={'Home | Arkadip'}/>
+  );
+}
