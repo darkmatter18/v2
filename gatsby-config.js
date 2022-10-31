@@ -65,7 +65,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-image',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     'gatsby-plugin-mdx',
