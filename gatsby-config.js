@@ -5,9 +5,11 @@ module.exports = {
     description: `A Computer science and Engineering student, 
     Deep Learning and Computer Vision 
     engineer and a web developer`,
-    descriptionSmall: `Developer`,
+    descriptionSmall: `Software Engineer, DevOps`,
+    email: 'hi@arkadip.dev',
     siteUrl: 'https://arkadip.dev',
     image: '/images/icon.png',
+    avatar: '/images/arkadip.jpeg',
     author: `@darkmatter18`,
     twitterUsername: '@arkadipb21',
     social: {

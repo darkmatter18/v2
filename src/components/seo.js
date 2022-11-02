@@ -10,8 +10,11 @@ const SEO = ({title, description, image, article}) => {
   const {
     defaultTitle,
     defaultDescription,
+    descriptionSmall,
     siteUrl,
     defaultImage,
+    email,
+    avatar,
     social: {
       twitter: {handle: twitterHandle, url: twitterUrl},
       facebook: {url: facebookUrl},
@@ -26,6 +29,37 @@ const SEO = ({title, description, image, article}) => {
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
+  };
+
+  const structureData = {
+    '@context': 'http://schema.org',
+    '@type': 'Person',
+    'email': email,
+    'url': siteUrl,
+    'image': avatar,
+    'jobTitle': descriptionSmall,
+    'name': defaultTitle,
+    'gender': 'male',
+    'nationality': 'Indian',
+    'worksFor': [
+      {
+        '@type': 'Organization',
+        'name': 'Digité Inc.',
+        'sameAs': [
+          'https://www.digite.com/',
+          'https://www.facebook.com/digite',
+          'https://twitter.com/DigiteInc',
+          'https://www.linkedin.com/company/digite/',
+        ],
+      },
+    ],
+    'sameAs': [
+      facebookUrl,
+      twitterUrl,
+      instagramUrl,
+      githubUrl,
+      linkedinUrl,
+    ],
   };
 
   return (
@@ -66,23 +100,7 @@ const SEO = ({title, description, image, article}) => {
 
       {/* LD Json */}
       <script type="application/ld+json">
-        {`  
-        {
-          "@context": "https://schema.org/",
-          "@type": "Person",
-          "name": "${defaultTitle}",
-          "url": "${siteUrl}",
-          "image": "${defaultImage}",
-          "sameAs": [
-            "${facebookUrl}",
-            "${twitterUrl}",
-            "${instagramUrl}",
-            "${githubUrl}",
-            "${linkedinUrl}",
-          ],
-          "jobTitle": "${defaultDescription}"  
-        }
-      `}
+        {JSON.stringify(structureData)}
       </script>
     </>
   );
@@ -110,7 +128,10 @@ const query = graphql`
       siteMetadata {
         defaultTitle: title
         defaultDescription: description
+        descriptionSmall
         siteUrl
+        email
+        avatar
         defaultImage: image,
         social {
           github {
