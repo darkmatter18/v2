@@ -21,7 +21,7 @@
     "@mdx-js/react": "2.1.5",
     "animejs": "3.2.1",
     "clsx": "1.2.1",
-    "gatsby": "4.24.7",
+    "gatsby": "5.0.0",
     "gatsby-plugin-canonical-urls": "^4.24.0",
     "gatsby-plugin-google-gtag": "4.24.0",
     "gatsby-plugin-image": "2.24.0",
