@@ -40,7 +40,7 @@
     "react-tsparticles": "2.5.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "autoprefixer": "10.4.14",
     "eslint": "7.32.0",
