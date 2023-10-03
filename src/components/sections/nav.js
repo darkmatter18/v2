@@ -8,6 +8,8 @@ import IconNav from '../../icons/IconNav';
 import IconLogo from '../../icons/IconLogo';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
 import NavLink from '../utils/navLink';
+import IconWrapper from '../utils/IconWrapper';
+import IconRss from '../../icons/IconRss';
 
 const Nav = ({location, initialNavState}) => {
   const isHome = location.pathname === '/';
@@ -61,6 +63,14 @@ const Nav = ({location, initialNavState}) => {
     >
       Resume
     </a>
+  );
+
+  const rssLink = (
+    <div className='mt-2 md:mt-0 md:ml-4'>
+      <IconWrapper href='https://blog.arkadip.dev/rss.xml'>
+        <IconRss/>
+      </IconWrapper>
+    </div>
   );
 
   return (
@@ -117,6 +127,7 @@ const Nav = ({location, initialNavState}) => {
                 );
               })}
               {resumeLink}
+              {rssLink}
             </>
           ) : (
             <>
@@ -144,13 +155,28 @@ const Nav = ({location, initialNavState}) => {
               </TransitionGroup>
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition classNames={'fadedown'} timeout={loaderDelay}>
-                    <div style={{transitionDelay: `${nav.length * 100}ms`}}
-                      className={clsx(isOpen ? 'flex' : 'hidden',
-                          'justify-center')}>
-                      {resumeLink}
-                    </div>
-                  </CSSTransition>
+                  <>
+                    <CSSTransition
+                      classNames={'fadedown'}
+                      timeout={loaderDelay}
+                    >
+                      <div style={{transitionDelay: `${nav.length * 100}ms`}}
+                        className={clsx(isOpen ? 'flex' : 'hidden',
+                            'justify-center')}>
+                        {resumeLink}
+                      </div>
+                    </CSSTransition>
+                    <CSSTransition
+                      classNames={'fadedown'}
+                      timeout={loaderDelay}
+                    >
+                      <div style={{transitionDelay: `${nav.length * 100}ms`}}
+                        className={clsx(isOpen ? 'flex' : 'hidden',
+                            'justify-center')}>
+                        {rssLink}
+                      </div>
+                    </CSSTransition>
+                  </>
                 )}
               </TransitionGroup>
             </>
