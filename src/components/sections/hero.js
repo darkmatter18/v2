@@ -57,16 +57,16 @@ const Hero = () => {
 
   const four = (
     <p className={'text-base text-neon-pink mt-5 max-w-xl'}>
-      {'I’m a software engineer specializing in building Web Backend' +
-        ' and Cloud based Solutions. ' +
-        'Currently, I’m focused on building accessible, ' +
-        'Agri-tech product at '}
+      {'I am a software engineer who specializes in developing web'+
+      ', backend, and cloud-based solutions. '+
+      'Currently, I am responsible for the development of '+
+      'agricultural technology products at '}
       <OutboundLink
-        href={'https://www.digite.com/'}
+        href={'https://www.nimblework.com/'}
         target={'_blank'}
         className={'text-neon-teal font-bold'}
       >
-        Digité, Inc.
+        Nimblework, Inc.
       </OutboundLink>
     </p>
   );

@@ -102,10 +102,10 @@ const SEO = ({title, description, image, article}) => {
       <script type="application/ld+json">
         {JSON.stringify(structureData)}
       </script>
-      <script 
-        async 
+      <script
+        async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4077277774959103"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       >
       </script>
     </>

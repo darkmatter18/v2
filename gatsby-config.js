@@ -46,20 +46,16 @@ module.exports = {
         link: '/#',
       },
       {
-        name: 'About',
-        link: '#about',
-      },
-      {
         name: 'Projects',
-        link: '#projects',
-      },
-      {
-        name: 'Contact',
-        link: '#contact',
+        link: 'https://github.com/darkmatter18?tab=repositories',
       },
       {
         name: 'Blog',
         link: 'https://blog.arkadip.dev',
+      },
+      {
+        name: 'Newsletter',
+        link: 'https://blog.arkadip.dev/newsletter',
       },
     ],
   },
