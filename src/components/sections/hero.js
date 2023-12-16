@@ -57,10 +57,30 @@ const Hero = () => {
 
   const four = (
     <p className={'text-base text-neon-pink mt-5 max-w-xl'}>
-      {'I am a software engineer who specializes in developing web'+
-      ', backend, and cloud-based solutions. '+
-      'Currently, I am responsible for the development of '+
-      'agricultural technology products at '}
+      {'I am a '}
+      <span className={'text-neon-teal font-bold'}>
+        Dynamic Software Engineer
+      </span>
+      {' with a robust background in crafting '}
+      <span className={'text-neon-teal font-bold'}>
+        cloud-native microservice applications
+      </span>
+      {' using '}
+      <span className={'text-neon-teal font-bold'}>Python</span>
+      {' and '}
+      <span className={'text-neon-teal font-bold'}>JavaScript</span>
+      {'. With '}
+      <span className={'text-neon-teal font-bold'}>2+ years</span>
+      {' of hands-on experience, I specialize in leveraging '}
+      <span className={'text-neon-teal font-bold'}>AWS and Azure</span>
+      {' cloud platforms, adeptly employing '}
+      <span className={'text-neon-teal font-bold'}>Docker, Kubernetes,</span>
+      {'and various Microservice architectures to design scalable and' +
+      ' efficient solutions. Currently contributing my expertise to a'+
+      ' pioneering Agri-tech company, I actively contribute to the'+
+      ' development of innovative products at the intersection of'+
+      ' technology and agriculture at '
+      }
       <OutboundLink
         href={'https://www.nimblework.com/'}
         target={'_blank'}
