@@ -76,7 +76,13 @@ const Hero = () => {
       {' cloud platforms, adeptly employing '}
       <span className={'text-neon-teal font-bold'}>Docker, Kubernetes,</span>
       {'and various Microservice architectures to design scalable and' +
-      ' efficient solutions. Currently contributing my expertise to a'+
+      ' efficient solutions.'}
+    </p>
+  );
+
+  const fours = (
+    <p className={'text-base text-neon-pink mt-5 max-w-xl'}>
+      {'Currently contributing my expertise to a'+
       ' pioneering Agri-tech company, I actively contribute to the'+
       ' development of innovative products at the intersection of'+
       ' technology and agriculture at '
@@ -111,7 +117,7 @@ const Hero = () => {
     </div>
   );
 
-  const items = [one, two, three, four, five];
+  const items = [one, two, three, four, fours, five];
 
   return (
     <div className={'h-screen'} ref={ref}>
