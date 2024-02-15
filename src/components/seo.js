@@ -97,17 +97,13 @@ const SEO = ({title, description, image, article}) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      <meta name="google-adsense-account" content="ca-pub-4077277774959103">
 
       {/* LD Json */}
       <script type="application/ld+json">
         {JSON.stringify(structureData)}
       </script>
-      {/*<script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4077277774959103"
-        crossOrigin="anonymous"
-      >
-      </script>*/}
+      
     </>
   );
 };
